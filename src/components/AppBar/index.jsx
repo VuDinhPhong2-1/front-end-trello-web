@@ -64,10 +64,10 @@ function AppBar() {
         <ModeSelect />
         <Tooltip title="Notification" sx={{ cursor: "pointer" }}>
           <Badge color="secondary" variant="dot">
-            <NotificationsNoneIcon />
+            <NotificationsNoneIcon sx={{ color: "primary.main" }} />
           </Badge>
         </Tooltip>
-        <Tooltip title="help" sx={{ cursor: "pointer" }}>
+        <Tooltip title="help" sx={{ cursor: "pointer", color: "primary.main" }}>
           <Badge color="secondary" variant="dot">
             <HelpOutlineIcon />
           </Badge>
