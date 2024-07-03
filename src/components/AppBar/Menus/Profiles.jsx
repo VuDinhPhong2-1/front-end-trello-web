@@ -28,7 +28,7 @@ export default function Profiles() {
           aria-expanded={open ? "true" : undefined}
         >
           <Avatar
-            sx={{ width: 32, height: 32 }}
+            sx={{ width: 34, height: 34 }}
             src={
               "https://scontent.fhan4-1.fna.fbcdn.net/v/t39.30808-1/426406032_2145788695760014_5051979108206305392_n.jpg?stp=dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=0ecb9b&_nc_eui2=AeHmkbQa12z2VCPsjneYsAGDvZPaIOVraLq9k9og5Wtous8QQYQroyzfUQVdyANc0YyptWU-GXAfmEjI8Fp1B9T_&_nc_ohc=_Ys7YxZ6SNsQ7kNvgEr5tDy&_nc_ht=scontent.fhan4-1.fna&oh=00_AYDM2NC2pdXNUotz6f-1P4TrKarbCqhK6-VD3xmLSRBBcw&oe=668975A2"
             }
