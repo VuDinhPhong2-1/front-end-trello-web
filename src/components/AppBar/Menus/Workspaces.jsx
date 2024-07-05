@@ -29,6 +29,7 @@ export default function WorkSpaces() {
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
+        sx={{ color: "white" }}
       >
         Workspaces
         <ExpandMoreIcon />
