@@ -5,6 +5,7 @@ import VpnLockIcon from "@mui/icons-material/VpnLock"
 import AddToDriveIcon from "@mui/icons-material/AddToDrive"
 import BoltIcon from "@mui/icons-material/Bolt"
 import PersonAddIcon from "@mui/icons-material/PersonAdd"
+import { capitalizeFirstLetter } from "~/utils/formatter"
 const MENU_STYLE = {
   color: "white",
   bgcolor: "transparent",
@@ -18,11 +19,10 @@ const MENU_STYLE = {
     bgcolor: "primary.50",
   },
 }
-function BoardBar() {
+function BoardBar({ board }) {
   return (
     <Box
       sx={{
-        // backgroundColor: "primary.dark",
         width: "100%",
         height: (theme) => theme.trello.boardBarHeight,
         display: "flex",
@@ -38,13 +38,13 @@ function BoardBar() {
     >
       <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
         <Chip
-          label="Phong Trello"
+          label={board?.title}
           icon={<DashboardIcon />}
           clickable
           sx={MENU_STYLE}
         />
         <Chip
-          label="Public/Private WorkSpace"
+          label={capitalizeFirstLetter(board?.type)}
           icon={<VpnLockIcon />}
           clickable
           sx={MENU_STYLE}

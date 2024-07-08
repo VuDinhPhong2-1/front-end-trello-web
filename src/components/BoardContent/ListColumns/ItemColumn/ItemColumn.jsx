@@ -3,8 +3,11 @@ import AddCardIcon from "@mui/icons-material/AddCard"
 import DragHandleIcon from "@mui/icons-material/DragHandle"
 import MenuAction from "../Menus/ListActions"
 import ListCards from "./ListCards/ListCards"
+import { mapOrder } from "~/utils/sort"
 
-function ItemColumn() {
+function ItemColumn({ column }) {
+  const orderedColumns = mapOrder(column?.cards, column?.cardOrderIds, "_id")
+
   return (
     <Box
       sx={{
@@ -33,12 +36,12 @@ function ItemColumn() {
           variant="h6"
           sx={{ fontWeight: "bold", cursor: "pointer", fontSize: "1rem" }}
         >
-          Column Tilte
+          {column?.title}
         </Typography>
         <MenuAction />
       </Box>
       {/* Box list card*/}
-      <ListCards />
+      <ListCards cards={orderedColumns} />
       {/* Box column footer*/}
       <Box
         sx={{
