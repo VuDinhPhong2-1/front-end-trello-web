@@ -7,7 +7,14 @@ import Typography from "@mui/material/Typography"
 import GroupIcon from "@mui/icons-material/Group"
 import CommentIcon from "@mui/icons-material/Comment"
 import AttachmentIcon from "@mui/icons-material/Attachment"
-function ItemCard() {
+function ItemCard({ card }) {
+  const shouldShowCardActions = () => {
+    return (
+      !!card?.memberIds?.length ||
+      !!card?.comments?.length ||
+      !!card?.attachments?.length
+    )
+  }
   return (
     <>
       <Card
@@ -17,26 +24,37 @@ function ItemCard() {
           overflow: "unset",
         }}
       >
-        <CardMedia
-          component="img"
-          alt="green iguana"
-          height="140"
-          image="https://tapchimoitruong.vn/uploads/042021/image001_f72b91f0.jpg"
-        />
+        {card?.cover && (
+          <CardMedia
+            component="img"
+            alt="green iguana"
+            height="140"
+            image={card?.cover}
+          />
+        )}
+
         <CardContent sx={{ p: 1.5, "&:last-child": { pb: 1.5 } }}>
-          <Typography>Phong DZ</Typography>
+          <Typography>{card?.title}</Typography>
         </CardContent>
-        <CardActions sx={{ p: "0 4px 8px 4px" }}>
-          <Button size="small" startIcon={<GroupIcon />}>
-            10
-          </Button>
-          <Button size="small" startIcon={<CommentIcon />}>
-            15
-          </Button>
-          <Button size="small" startIcon={<AttachmentIcon />}>
-            20
-          </Button>
-        </CardActions>
+        {shouldShowCardActions() && (
+          <CardActions sx={{ p: "0 4px 8px 4px" }}>
+            {!!card?.memberIds?.length && (
+              <Button size="small" startIcon={<GroupIcon />}>
+                {card?.memberIds?.length}
+              </Button>
+            )}
+            {!!card?.comments?.length && (
+              <Button size="small" startIcon={<CommentIcon />}>
+                {card?.comments?.length}
+              </Button>
+            )}
+            {!!card?.attachments?.length && (
+              <Button size="small" startIcon={<AttachmentIcon />}>
+                {card?.attachments?.length}
+              </Button>
+            )}
+          </CardActions>
+        )}
       </Card>
       <Card
         sx={{

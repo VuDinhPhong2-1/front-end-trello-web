@@ -1,7 +1,7 @@
 import { Box } from "@mui/material"
 import ItemCard from "./ItemCard/ItemCard"
 
-export default function ListCards() {
+export default function ListCards({ cards }) {
   return (
     <Box
       sx={{
@@ -9,7 +9,6 @@ export default function ListCards() {
         m: "0 5px",
         display: "flex",
         flexDirection: "column",
-        // p: 2,
         gap: 2,
         overflowX: "hine",
         overflowY: "auto",
@@ -25,7 +24,9 @@ export default function ListCards() {
         "&::-webkit-scrollbar-thumb:hover": { background: "#bfc2cf" },
       }}
     >
-      <ItemCard />
+      {cards?.map((card) => (
+        <ItemCard key={card._id} card={card} />
+      ))}
     </Box>
   )
 }
