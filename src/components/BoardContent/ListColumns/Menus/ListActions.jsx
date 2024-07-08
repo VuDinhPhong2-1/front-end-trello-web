@@ -13,7 +13,7 @@ import AddCardIcon from "@mui/icons-material/AddCard"
 
 const ITEM_HEIGHT = 48
 
-export default function LongMenu() {
+export default function MenuAction() {
   const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl)
   const handleClick = (event) => {
