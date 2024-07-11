@@ -6,7 +6,9 @@ import {
   horizontalListSortingStrategy,
 } from "@dnd-kit/sortable"
 function ListColumn({ columns }) {
-  const columsIds = columns?.map((c) => c._id)
+  // Kiểm tra nếu columns không phải là một mảng, đặt nó thành một mảng rỗng
+  const validColumns = Array.isArray(columns) ? columns : []
+  const columsIds = validColumns.map((c) => c._id)
   return (
     <SortableContext items={columsIds} strategy={horizontalListSortingStrategy}>
       <Box // List column
@@ -16,12 +18,12 @@ function ListColumn({ columns }) {
           width: "100%",
           display: "flex",
           overflowX: "auto",
-          overflowY: "hiden",
+          overflowY: "hidden",
           "&::-webkit-scrollbar-track": { m: 2 },
         }}
       >
         {/* Box column */}
-        {columns?.map((column) => (
+        {validColumns?.map((column) => (
           <ItemColumn key={column._id} column={column} />
         ))}
 
